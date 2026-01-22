@@ -1,5 +1,5 @@
 # Databricks notebook source
-# DBTITLE 1,Cell 1
+# DBTITLE 1,tranformations
 from pyspark.sql.types import *
 builtin_sum = sum  # Save Python's built-in sum before it gets overwritten
 from pyspark.sql.functions import *

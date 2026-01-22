@@ -68,3 +68,18 @@ df_filtered_select = emp_df.join(dept_df, emp_df["emp_dept_id"] == dept_df["dept
     .select(emp_df.emp_id, emp_df.emp_name, emp_df.emp_salary, dept_df.dept_name, dept_df.dept_location) \
     .filter("emp_salary >= 55000")
 display(df_filtered_select)
+
+# COMMAND ----------
+
+#outer joins
+
+full_outer_df = dept_df.join(project_df, dept_df.dept_id == project_df.dept_id, "full_outer")
+display(full_outer_df)
+
+#left side everything right side will be shown null if record not found
+left_outer_df = dept_df.join(project_df, dept_df.dept_id == project_df.dept_id, "left_outer")
+display(left_outer_df)
+
+#right side everything left side will not be shown anything if record not found
+right_outer_df = dept_df.join(project_df, dept_df.dept_id == project_df.dept_id, "right_outer")
+display(right_outer_df)
