@@ -1,4 +1,13 @@
 # Databricks notebook source
+# MAGIC %md
+# MAGIC **Detecting Nulls**: Use isNull() to find null values.
+# MAGIC **Dropping Nulls**: Use dropna() to remove rows with nulls (all or specific columns).
+# MAGIC **Filling Nulls**: Use fillna() to replace nulls with defaults.
+# MAGIC **Coalesce Function**: Use coalesce() to return the first non-null value.
+# MAGIC **Aggregations**: Use coalesce() in aggregations to handle nulls safely.
+
+# COMMAND ----------
+
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, coalesce
 
