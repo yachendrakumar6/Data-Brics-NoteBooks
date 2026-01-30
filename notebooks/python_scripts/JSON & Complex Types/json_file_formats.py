@@ -46,3 +46,13 @@ schema_of_json_df = df_from_json.select(
     schema_of_json(col("emp_json")).alias("json_schema")
 )
 display(schema_of_json_df)
+
+# COMMAND ----------
+
+schema_df = df_from_json.select(schema_of_json(col("emp_json")).alias("schema")).first()[0]
+
+df_from_json.select(
+    "emp_id",
+    from_json(col("emp_json"), schema_df).alias("emp_struct")
+).select("emp_id", "emp_struct.*").show()
+
